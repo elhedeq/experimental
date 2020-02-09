@@ -1,0 +1,21 @@
+div {
+    position: fixed;
+    background-color: gold;
+    color: green;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: arial;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 1%;
+    transition: all 0.2s;
+}
+p {
+    display: none;
+    padding: 1%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: arial;
+    font-weight: bold;
+}

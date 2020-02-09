@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Geolocating from IP</title>
+    </head>
+    <body>
+	<p>please update page before trying new IP</p>
+        <form method="get" action="#">
+            <input type="text" id="ip" placeholder="xxxx.xxxx.xxxx.xxxx"/>
+            <input type="submit" value="Show info" onclick="getInfo();"/>
+        </form>
+	<p id="result"></p>
+	<p>by the help of geoiplookup.io API</p>
+	<script>
+	var ip=document.getElementById("ip").value;
+	var query= "https://json.geoiplookup.io/"+ip;
+	var result=document.getElementById("result");
+	function getInfo(){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		        var obj = JSON.parse(xhttp.responseText);
+			result.innerHTML="IP: "+obj.ip+
+					 "<br>ISP: "+obj.isp+
+					 "<br>Organizatio: "+obj.org+
+					 "<br>Host Name: "+obj.hostname+
+					 "<br>Longitude: "+obj.longitude+
+					 "<br>Latitude: "+obj.latitude+
+					 "<br>Postal Code: "+obj.postal_code+
+					 "<br>City: "+obj.city+
+					 "<br>Country Code: "+obj.country_code+
+					 "<br>Country Name: "+obj.country_name+
+					 "<br>Continent Code: "+obj.continent_code+
+					 "<br>Region: "+obj.region+
+					 "<br>District: "+obj.district+
+					 "<br>Timezone: "+obj.timezone_name+
+					 "<br>Connection Type: "+obj.connection_type+
+					 "<br>ASN: "+obj.asn+
+					 "<br>Currency Code: "+obj.currency_code+
+					 "<br>Currency Name: "+obj.currency_name;
+		    }
+		};
+		xhttp.open("GET", query, true);
+		xhttp.send();
+	}
+	</script>
+    </body>
+</html>
