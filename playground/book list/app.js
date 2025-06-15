@@ -82,6 +82,7 @@ class UI {
             document.querySelector('#book-isbn').value = event.target.parentNode.children[2].innerText;
             document.querySelector('#book-isbn').setAttribute('disabled','disabled');
             document.querySelector('#add').value = 'update';
+            document.querySelector('#add-book').firstElementChild.innerText = 'update book';
         }
     }
 
@@ -169,6 +170,9 @@ document.querySelector('#add-book').addEventListener('click', (event)=> {
         const book = new Book(title.value.trim(),author.value.trim(),Number.parseInt(isbn.value.trim()));
         Storage.editBook(book, book.isbn);
         UI.clearList();
+        document.querySelector('#book-isbn').removeAttribute('disabled');
+        document.querySelector('#add').value = 'add';
+        document.querySelector('#add-book').firstElementChild.innerText = 'add book';
         UI.loadBooks(Storage.getBooks());
         UI.showMessage('book updated successfully','success',isbn.parentNode);
         setTimeout(()=>document.querySelectorAll('.msg').forEach(msg => msg.remove()),3000);
