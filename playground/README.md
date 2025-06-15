@@ -13,3 +13,6 @@ using geoiplookup.io API
 * **Catch me if you can**
 a tricky text escapes every time you're about to touch it 
 can you catch it
+* **Book List**
+a simple book list app with create/update/delete/search functionalities saving data to local storage
+built using html,bootstrap and vanilla js
