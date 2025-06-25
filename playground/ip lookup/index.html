@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Geolocating from IP</title>
+</head>
+<body>
+    <button id="myip">lookup my ip</button>
+    <h2>custom IP lookup</h2>
+    <form method="get" action="#">
+        <input type="text" id="ip" placeholder="xxx.xxx.xxx.xxx"/>
+        <input type="submit" value="Show info"/>
+    </form>
+    <div class="result-box">
+        <p id="result"></p>
+        <div id="map"></div>
+    </div>
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
